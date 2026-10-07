@@ -12,5 +12,8 @@ typedef struct controlador {
 } Controlador;
 
 void enqueue(Controlador *controlador, float valor);
+int dequeue(Controlador *controlador, float *valor);
+void exibir(const Controlador *controlador);
+void esvaziar(Controlador *controlador);
 
 #endif
