@@ -55,17 +55,16 @@ void exibir(const Controlador *controlador)
 
     if (atual == NULL)
     {
-        printf("Fila vazia\n");
+        printf("fila vazia\n");
         return;
     }
 
-    printf("Fila:");
+    printf("fila:");
     while (atual != NULL)
     {
         printf(" %.1f", atual->dado);
         atual = atual->proximo;
     }
-    printf("\n");
 }
 
 void esvaziar(Controlador *controlador)
