@@ -4,21 +4,73 @@
 
 typedef struct fila fila, *Pfila;
 
-typedef struct controlador
+void enqueue(Controlador *controlador, float valor)
 {
-    Pfila topo;
-    Pfila cauda;
-};
+    Pfila novo = malloc(sizeof(fila));
 
-typedef struct fila
-{
-    float dado;
-    Pfila proximo;
+    novo->dado = valor;
+    novo->proximo = NULL;
 
-}fila, *Pfila;
-
-Pfila enqueue(Pfila cauda, float valor){
-
+    if (controlador->cauda == NULL)
+    {
+        controlador->topo = novo;
+        controlador->cauda = novo;
+    }
+    else
+    {
+        controlador->cauda->proximo = novo;
+        controlador->cauda = novo;
+    }
 }
 
+int dequeue(Controlador *controlador, float *valor)
+{
+    Pfila removido;
 
+    if (controlador->topo == NULL)
+    {
+        return 0;
+    }
+
+    removido = controlador->topo;
+    controlador->topo = removido->proximo;
+
+    if (valor != NULL)
+    {
+        *valor = removido->dado;
+    }
+
+    if (controlador->topo == NULL)
+    {
+        controlador->cauda = NULL;
+    }
+
+    free(removido);
+    return 1;
+}
+
+void exibir(const Controlador *controlador)
+{
+    Pfila atual = controlador->topo;
+
+    if (atual == NULL)
+    {
+        printf("Fila vazia\n");
+        return;
+    }
+
+    printf("Fila:");
+    while (atual != NULL)
+    {
+        printf(" %.1f", atual->dado);
+        atual = atual->proximo;
+    }
+    printf("\n");
+}
+
+void esvaziar(Controlador *controlador)
+{
+    while (dequeue(controlador, NULL))
+    {
+    }
+}
