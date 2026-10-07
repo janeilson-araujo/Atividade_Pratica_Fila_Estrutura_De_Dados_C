@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include "fila.h"
 
 typedef struct fila fila, *Pfila;
 
@@ -16,6 +17,8 @@ typedef struct fila
 
 }fila, *Pfila;
 
+Pfila enqueue(Pfila cauda, float valor){
 
+}
 
 
