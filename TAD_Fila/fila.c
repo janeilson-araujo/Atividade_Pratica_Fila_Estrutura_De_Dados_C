@@ -65,6 +65,8 @@ void exibir(const Controlador *controlador)
         printf(" %.1f", atual->dado);
         atual = atual->proximo;
     }
+    
+    printf("\n");
 }
 
 void esvaziar(Controlador *controlador)
