@@ -52,7 +52,7 @@ int fila_vazia( Controlador *controlador)
     return controlador->topo == NULL;
 }
 
-void exibir(const Controlador *controlador)
+void exibir(Controlador *controlador)
 {
     Fila *atual = controlador->topo;
 
